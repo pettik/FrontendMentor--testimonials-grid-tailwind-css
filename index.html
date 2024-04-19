@@ -28,9 +28,11 @@
     <!-- Global container -->
     <div class="container mx-auto max-w-7xl p-2 md:p-10">
       <!-- Grid container -->
-      <div class="text-white">
+      <div
+        class="grid gap-6 grid-cols-1 md:grid-cols-4 md:grid-rows-2 text-white"
+      >
         <!-- Box 1 -->
-        <div class="relative p-10 rounded-xl bg-purple-700">
+        <div class="relative p-10 rounded-xl bg-purple-700 md:col-span-2">
           <!-- Quotes Image -->
           <img
             src="./images/bg-pattern-quotation.svg"
@@ -58,7 +60,7 @@
           </p>
 
           <!-- Small Text -->
-          <p class="mt-6 opacity-50">
+          <p class="mt-6 opacity-50 md:line-clamp-6">
             "I was an EMT for many years before I joined the bootcamp. I've been
             looking to make a transition and have heard some people who had an
             amazing experience here. I signed up for the free intro course and
@@ -96,7 +98,7 @@
           </p>
 
           <!-- Small Text -->
-          <p class="mt-6 opacity-50 line-clamp-5">
+          <p class="mt-6 opacity-50 md:line-clamp-5">
             "I started as a total newbie with virtually no coding skills. I now
             work as a mobile engineer for a big company. This was one of the
             best investments I've made in myself. Lorem ipsum dolor sit amet
@@ -110,7 +112,9 @@
         </div>
 
         <!-- Box 3 -->
-        <div class="hidden p-10 rounded-xl text-gray-900 bg-white">
+        <div
+          class="hidden p-10 rounded-xl text-gray-900 bg-white md:block md:row-span-2"
+        >
           <!-- Box Header -->
           <div class="flex space-x-4">
             <img
@@ -174,7 +178,7 @@
         </div>
 
         <!-- Box 5 -->
-        <div class="p-10 rounded-xl bg-gray-900">
+        <div class="p-10 rounded-xl bg-gray-900 md:col-span-2">
           <!-- Box Header -->
           <div class="flex space-x-4">
             <img
@@ -207,7 +211,7 @@
         </div>
 
         <!-- Box 6 -->
-        <div class="p-10 rounded-xl text-gray-900 bg-white">
+        <div class="p-10 rounded-xl text-gray-900 bg-white md:hidden">
           <!-- Box Header -->
           <div class="flex space-x-4">
             <img
