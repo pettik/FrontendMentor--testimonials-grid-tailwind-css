@@ -1,33 +1,34 @@
-# Simple Tailwind Starter
+# FrontendMentor--testimonials-grid-tailwind-css
 
-This is a simple Tailwind starter project using the Tailwind CLI. It is meant to be used as a starting point for your projects. This is the same setup used in my [Tailwind From Scratch Course](https://www.traversymedia.com/tailwind-css-course).
+Testimonials Grid Section challenge using CSS framework - Tailwind CSS
+
+Testimonials Grid Section challenge from [Frontend Mentor Challenge](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7) using CSS framework - Tailwind CSS. Author of this whole page is Brad Traversy in his [Tailwind CSS From Scratch course](https://www.traversymedia.com/tailwind-css-course)
 
 ## Usage
 
-Clone the repo:
+Install dependencies
 
-```bash
-git clone
 ```
-
-Install the dependencies:
-
-```bash
 npm install
 ```
 
-Build or watch the CSS file:
+Run Tailwind CLI
 
-```bash
-# Build once
-npm run build
-
-# Watch for changes
+```
 npm run watch
 ```
 
-This will watch the `src/input.css` file and build it to `css/style.css`, which will be your final CSS file.
+### Screenshot
+
+<img src="./images/site-preview.png" alt="This is my solution of this challenge">
+
 
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+
+## My Contact
+
+- Website - [Petr Bednarski](https://github.com/pettik)
+- Frontend Mentor - [@pettik](https://www.frontendmentor.io/profile/pettik)
