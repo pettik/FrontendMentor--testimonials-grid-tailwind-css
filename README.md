@@ -23,11 +23,6 @@ npm run watch
 <img src="./images/site-preview.png" alt="This is my solution of this challenge">
 
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-
 ## My Contact
 
 - Website - [Petr Bednarski](https://github.com/pettik)
