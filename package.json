@@ -1,8 +1,8 @@
 {
-  "name": "simple-tailwind-starter",
+  "name": "frontend-mentor-testimonials-grid",
   "version": "1.0.0",
-  "description": "Simple file structure for Tailwind projects",
-  "main": "index.js",
+  "private": true,
+  "description": "Responsive, accessible testimonials grid built with HTML and Tailwind CSS",
   "scripts": {
     "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
     "build": "tailwindcss -i ./input.css -o ./css/style.css"
@@ -10,7 +10,7 @@
   "author": "Brad Traversy",
   "license": "MIT",
   "devDependencies": {
-    "@tailwindcss/line-clamp": "^0.4.4",
-    "tailwindcss": "^3.2.7"
+    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^3.4.19"
   }
 }

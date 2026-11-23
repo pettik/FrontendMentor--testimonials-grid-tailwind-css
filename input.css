@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply grid min-h-screen place-items-center bg-page font-sans font-medium;
+    min-height: 100svh;
+    padding: 4.4375rem 1.5rem;
+    padding-inline: min(1.5rem, 6.4vw);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+}
+
+@layer components {
+  .testimonial {
+    @apply relative isolate min-w-0 rounded-lg px-8 pb-8 shadow-testimonial;
+    --testimonial-muted: hsl(0 0% 100% / 0.9);
+    padding-inline: min(2rem, 8.533333vw);
+    padding-top: 1.625rem;
+    overflow-wrap: anywhere;
+  }
+
+  .testimonial--light {
+    @apply bg-white text-slate-blue;
+    --testimonial-muted: hsl(217 19% 35% / 0.9);
+  }
+
+  /* A CSS background keeps the quotation mark out of the reading order. */
+  .testimonial--featured::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 1.5rem;
+    width: 6.5rem;
+    height: 6.375rem;
+    background: url('../images/bg-pattern-quotation.svg') no-repeat center / contain;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .testimonial__author {
+    @apply flex items-center gap-4;
+  }
+
+  .testimonial__author > div {
+    min-width: 0;
+  }
+
+  .testimonial__portrait {
+    @apply h-7 w-7 shrink-0 rounded-full;
+  }
+
+  .testimonial__name {
+    line-height: 1.2;
+  }
+
+  .testimonial__status {
+    margin-top: 0.25rem;
+    color: var(--testimonial-muted);
+    font-size: 0.6875rem;
+    line-height: 1.2;
+  }
+
+  .testimonial__summary {
+    @apply text-xl font-semibold leading-6;
+    margin-top: 1.125rem;
+  }
+
+  .testimonial__detail {
+    @apply mt-4;
+    color: var(--testimonial-muted);
+  }
+
+  @screen md {
+    .testimonial--featured::before {
+      right: 5rem;
+    }
+  }
+}
