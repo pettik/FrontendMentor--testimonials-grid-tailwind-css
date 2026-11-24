@@ -1,33 +1,58 @@
 # Testimonials Grid Section
 
-A responsive page with five coding bootcamp graduate testimonials, built for the
-[Frontend Mentor challenge](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7)
-using semantic HTML and Tailwind CSS.
+A responsive page presenting five coding bootcamp graduate testimonials. This
+solution to the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7)
+uses semantic HTML and Tailwind CSS.
 
 ## Overview
 
-All five testimonials appear once in the HTML. On mobile they follow this reading
-order: Daniel, Jonathan, Jeanette, Patrick, Kira. The layout uses one column on
-mobile, two from `48rem`, and four from `64rem`. On desktop, Daniel and Patrick
-span two columns and Kira spans two rows.
+The page adapts from a single mobile column to a two-column tablet layout and a
+four-column desktop grid. All five testimonials are shown in full, with one copy
+of each card in the HTML.
 
-Columns use `minmax(0, 1fr)`; row heights follow the content. Text is never clamped,
-so the complete testimonials remain available as the viewport or text size changes.
+### Desktop screenshot
+
+Captured from the current local build at a **1440 × 900** viewport.
+
+![Current Tailwind solution on desktop: Daniel and Jonathan above Jeanette and Patrick, with Kira spanning both rows on the right](images/solution-desktop.png)
+
+### Mobile screenshot
+
+Captured from the same build at a **375 × 812** viewport using a full-page capture.
+Cards follow the reading order Daniel, Jonathan, Jeanette, Patrick, Kira.
+
+<img src="images/solution-mobile.png" alt="Current Tailwind solution on mobile, showing all five complete testimonials in one column" width="375" />
+
+Both screenshots were taken in headless Chrome after the project font and all
+portraits finished loading. They show the implemented page, rather than a design
+reference.
 
 ## Links
 
-- [Source code](https://github.com/pettik/FrontendMentor--testimonials-grid-tailwind-css)
+- [Live demo on Netlify — earlier plain-CSS implementation](https://pettik-testimonials-grid-section.netlify.app/)
+- [Source code — current Tailwind implementation](https://github.com/pettik/FrontendMentor--testimonials-grid-tailwind-css)
 - [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7)
 - [Figma design](https://www.figma.com/design/9O03l3dpCgUQMIQqbPvuT8?fuid=1332602664592485491)
 
-A live deployment has not been configured for this repository. Use the local
-preview below to view the current solution.
+The Netlify URL was checked on **24 November 2026** and returned HTTP 200. It
+currently serves the earlier plain-CSS version, so its appearance and markup
+differ from this repository. The screenshots above show the current Tailwind
+solution; redeploy this repository to update the public demo.
 
-## Local development
+## My process
 
-Requires Node.js and npm.
+### Built with
 
-Install the locked dependencies and generate the stylesheet:
+- Semantic HTML: `main`, `article`, `header`, `blockquote`, and a logical heading hierarchy
+- Tailwind CSS 3.4 with shared card styles in `@layer components`
+- CSS Grid for page layout and Flexbox for author details
+- Relative font sizes, flexible spacing, and breakpoints in `rem`
+- Autoprefixer for browser prefixes in the generated stylesheet
+- Barlow Semi Condensed from Google Fonts, with a sans-serif fallback
+
+### Local development
+
+Requires Node.js and npm. Install the locked dependencies and build the CSS:
 
 ```sh
 npm ci
@@ -35,95 +60,94 @@ npm run build
 ```
 
 Open `index.html` in a browser. No application server or runtime JavaScript is
-required. For automatic CSS updates during development, run:
+required. To rebuild CSS automatically while editing:
 
 ```sh
 npm run watch
 ```
 
-Edit `input.css`, `index.html`, and `tailwind.config.js`. The generated
-`css/style.css` is committed so the page can also be served directly as a static
-site; rebuild it after changing styles or Tailwind classes.
+Edit `index.html`, `input.css`, and `tailwind.config.js`. Rebuild and include
+`css/style.css` when changing source styles or Tailwind classes. The generated
+stylesheet is tracked so the repository can also be served directly as a static
+site.
 
-## Built with
+### Layout and accessibility decisions
 
-- Semantic `main`, `article`, `header`, headings, and `blockquote` elements
-- Tailwind CSS 3.4, with shared card styles in `@layer components`
-- Autoprefixer with an up-to-date browser database for the CSS build
-- CSS Grid for the responsive layout and Flexbox for author details
-- Relative font sizes, spacing, and breakpoints
-- Barlow Semi Condensed from Google Fonts, with a sans-serif fallback
+The grid uses one column below `48rem`, two from `48rem`, and four from
+`64rem`. On desktop, Daniel and Patrick span two columns and Kira spans two rows.
+The desktop layout is applied only when there is enough space for four cards.
 
-Palette, font family, maximum width, and card shadow are centralized in
-`tailwind.config.js`.
+Tailwind's grid utilities generate flexible tracks:
 
-## Accessibility and feedback fixes
+```css
+grid-template-columns: repeat(4, minmax(0, 1fr));
+```
 
-- Added a descriptive page title, meta description, and visually hidden `h1`.
-- Replaced generic card containers and skipped heading levels with articles and
-  `h2` headings. Each article is labelled by its summary.
-- Kept decorative portraits at `alt=""` to avoid repeating adjacent names.
-- Made the decorative quotation mark a CSS background, outside the reading order.
-- Removed the duplicate mobile/desktop Kira card; the mobile visual order follows
-  the HTML order.
-- Removed placeholder text, line clamping, and the missing JavaScript reference.
-- Used flexible columns and content-sized rows instead of fixed minimum widths
-  or fixed row heights.
-- Increased the contrast of secondary text on both light and dark cards.
-- Removed the unused line-clamp plugin and expanded `.gitignore` for generated,
-  local, and operating-system files.
+Cards use `min-width: 0`, wrapping text, and content-sized rows. There are no fixed
+card heights or line clamps, so longer text and larger fonts can increase card
+height without hiding content.
+
+The DOM follows the mobile reading order. Each testimonial is a labelled article
+with an `h2`; a visually hidden `h1` identifies the page. Portraits use `alt=""`
+because the adjacent text names each graduate. The decorative quotation mark is
+a CSS background and is not part of the reading order.
+
+Shared card rules live in `input.css`. Palette, font family, maximum width, and
+shadow are centralized in `tailwind.config.js`.
 
 ## What I learned
 
-Changing the visual position of a card does not change screen-reader order.
-Keeping one copy of each testimonial in a sensible source order makes the mobile
-layout simpler and avoids maintaining duplicate content.
+Moving a card visually does not change screen-reader order. Keeping one copy of
+each testimonial in the intended mobile order avoids duplicate content and makes
+the reading experience consistent when the layout stacks.
 
-Flexible columns alone are not enough for robust reflow: cards also need
-`min-width: 0`, wrapping text, and room to grow vertically. Shared component
-styles keep those rules consistent across every card.
+Responsive layout needs an intermediate state. Switching straight to four columns
+around tablet widths leaves too little space for the text; a two-column layout
+between `48rem` and `64rem` keeps the cards readable.
+
+Flexible column widths also need flexible content. Combining `minmax(0, 1fr)`
+with `min-width: 0`, text wrapping, and automatic row heights lets the layout
+accommodate larger text without clipping the testimonials.
 
 ## Verification
 
-The Tailwind build and source checks cover HTML structure, heading and article
-labels, local asset references, and the generated stylesheet. Calculated text
-contrast is at least 4.62:1, including text over the quotation decoration. Browser rendering
-and exact visual comparison with Figma remain unverified in this environment.
+- `npm run build` completes successfully.
+- Headless Chrome checks passed at widths of 320, 375, 768, 800, 1024, and 1440 CSS pixels.
+- All five cards remain present, with no horizontal page or card overflow.
+- Additional checks passed with the root font size increased from 16px to 32px
+  at viewport widths of 375 and 1440 pixels.
+- The project font and portrait images loaded before the screenshots were captured.
 
-Before submitting the solution, check:
-
-- Widths around 320, 375, 768, 800, 1024, and 1440 CSS pixels.
-- Browser zoom at 200% and 400%, and the browser's default font size at 200%.
-- No horizontal page scrolling or clipped testimonial text.
-- Heading navigation and the five testimonials' reading order with a screen reader.
-- Desktop and mobile appearance against the Figma design.
-
-## Screenshots
-
-The existing [desktop screenshot](images/site-preview.png) shows an earlier
-version of this implementation, before these feedback fixes. It is retained as
-project history. Updated desktop and mobile captures are still needed; this image
-should not be used to judge the current layout.
+Exact comparison with the Figma file, manual screen-reader navigation, and
+browser zoom checks remain to be completed.
 
 ## Continued development
 
-Complete the browser and screen-reader checks above, capture the revised desktop
-and mobile layouts, and add a verified live URL after deployment. Self-hosting the
-font would also make the typography independent of Google Fonts availability.
+- Deploy this Tailwind version to the public demo and verify the deployed result.
+- Complete manual screen-reader and browser zoom checks.
+- Explore self-hosting the font so typography does not depend on Google Fonts.
+- Keep the desktop and mobile screenshots current when the visual design changes.
 
-For future changes, use focused commits with descriptive messages, for example
-`Fix testimonial reading order`, `Improve responsive grid layout`, or
-`Document build and accessibility decisions`. Existing history is preserved.
+## Repository workflow
 
-## Resources and credits
+See [Contributing](CONTRIBUTING.md) for focused commits, descriptive messages,
+build checks, and screenshot updates. The tracked [`.gitignore`](.gitignore)
+excludes dependencies, build output, logs, local environment files, and common
+editor and operating-system files.
+
+## Useful resources
 
 - [Tailwind CSS: responsive design](https://v3.tailwindcss.com/docs/responsive-design)
+  explains the mobile-first breakpoint utilities used by the grid.
 - [MDN: grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-template-columns)
-- Design and testimonial assets: [Frontend Mentor](https://www.frontendmentor.io/)
-- Original Tailwind course implementation: Brad Traversy's
-  [Tailwind CSS From Scratch](https://www.traversymedia.com/tailwind-css-course)
+  documents track sizing and the `minmax()` function used to keep columns flexible.
 
-## Author
+## Credits and author
+
+Design and testimonial assets are provided by
+[Frontend Mentor](https://www.frontendmentor.io/). The original Tailwind course
+implementation is from Brad Traversy's
+[Tailwind CSS From Scratch](https://www.traversymedia.com/tailwind-css-course).
 
 - GitHub: [Petr Bednarski](https://github.com/pettik)
 - Frontend Mentor: [@pettik](https://www.frontendmentor.io/profile/pettik)
