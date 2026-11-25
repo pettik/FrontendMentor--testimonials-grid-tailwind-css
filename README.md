@@ -1,153 +1,227 @@
 # Testimonials Grid Section
 
-A responsive page presenting five coding bootcamp graduate testimonials. This
-solution to the [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7)
-uses semantic HTML and Tailwind CSS.
+A responsive testimonials grid built with semantic HTML and Tailwind CSS,
+showcasing five coding bootcamp graduates and their experiences.
+
+This project is a solution to the
+[Testimonials grid section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7).
+
+## Table of contents
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Implementation](#implementation)
+  - [Local development](#local-development)
+  - [What I learned](#what-i-learned)
+  - [Testing and verification](#testing-and-verification)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
-The page adapts from a single mobile column to a two-column tablet layout and a
-four-column desktop grid. All five testimonials are shown in full, with one copy
-of each card in the HTML.
+### The challenge
 
-### Desktop screenshot
+Users should be able to:
 
-Captured from the current local build at a **1440 × 900** viewport.
+- View the optimal layout depending on their device's screen size.
+- Read all five testimonials without horizontal scrolling.
+- Experience a consistent, accessible, and responsive interface.
 
-![Current Tailwind solution on desktop: Daniel and Jonathan above Jeanette and Patrick, with Kira spanning both rows on the right](images/solution-desktop.png)
+The solution implements a mobile-first approach, transitioning from
+a single-column mobile layout to a two-column tablet layout and
+a four-column desktop grid.
 
-### Mobile screenshot
+### Screenshots
 
-Captured from the same build at a **375 × 812** viewport using a full-page capture.
-Cards follow the reading order Daniel, Jonathan, Jeanette, Patrick, Kira.
+#### Desktop
 
-<img src="images/solution-mobile.png" alt="Current Tailwind solution on mobile, showing all five complete testimonials in one column" width="375" />
+![Desktop screenshot of the finished solution](images/solution-desktop.png)
 
-Both screenshots were taken in headless Chrome after the project font and all
-portraits finished loading. They show the implemented page, rather than a design
-reference.
+*Viewport: 1440 × 900 px*
 
-## Links
+#### Mobile
 
-- [Live demo on Netlify — earlier plain-CSS implementation](https://pettik-testimonials-grid-section.netlify.app/)
-- [Source code — current Tailwind implementation](https://github.com/pettik/FrontendMentor--testimonials-grid-tailwind-css)
+<img src="images/solution-mobile.png"
+     alt="Mobile screenshot showing all five testimonials"
+     width="375" />
+
+*Viewport: 375 × 812 px — full-page capture*
+
+Both screenshots represent the actual Tailwind CSS implementation,
+rather than the original design references.
+
+### Links
+
 - [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7)
+- [Source code](https://github.com/pettik/FrontendMentor--testimonials-grid-tailwind-css)
 - [Figma design](https://www.figma.com/design/9O03l3dpCgUQMIQqbPvuT8?fuid=1332602664592485491)
+- [Live demo](https://pettik-testimonials-grid-section.netlify.app/)
 
-The Netlify URL was checked on **24 November 2026** and returned HTTP 200. It
-currently serves the earlier plain-CSS version, so its appearance and markup
-differ from this repository. The screenshots above show the current Tailwind
-solution; redeploy this repository to update the public demo.
+> **Deployment note:** The current live demo hosts the earlier
+> vanilla CSS implementation. The screenshots above represent
+> the updated Tailwind CSS version.
 
 ## My process
 
 ### Built with
 
-- Semantic HTML: `main`, `article`, `header`, `blockquote`, and a logical heading hierarchy
-- Tailwind CSS 3.4 with shared card styles in `@layer components`
-- CSS Grid for page layout and Flexbox for author details
-- Relative font sizes, flexible spacing, and breakpoints in `rem`
-- Autoprefixer for browser prefixes in the generated stylesheet
-- Barlow Semi Condensed from Google Fonts, with a sans-serif fallback
+- Semantic HTML5
+- Tailwind CSS 3.4
+- CSS Grid
+- Flexbox
+- Mobile-first workflow
+- Responsive design
+- Custom Tailwind components
+- Autoprefixer
+- Google Fonts — Barlow Semi Condensed
+- Git and GitHub
+
+### Implementation
+
+The layout uses CSS Grid for the testimonial cards and Flexbox
+for the author information inside each card.
+
+The responsive grid consists of three layout configurations:
+
+| Screen size | Breakpoint | Layout |
+|-------------|------------|--------|
+| Mobile | Below 768px | 1 column |
+| Tablet | From 768px | 2 columns |
+| Desktop | From 1024px | 4 columns |
+
+On desktop, selected cards span multiple columns or rows
+to recreate the original design.
+
+Shared component styles are defined using Tailwind's
+`@layer components`, while colors, typography, shadows,
+and other design tokens are centralized in `tailwind.config.js`.
+
+The implementation also focuses on accessibility through:
+
+- Semantic HTML elements.
+- Logical heading hierarchy.
+- Consistent reading order.
+- Accessible image handling.
+- Flexible card heights without content clipping.
 
 ### Local development
 
-Requires Node.js and npm. Install the locked dependencies and build the CSS:
+Node.js and npm are required to build the project locally.
+
+Install dependencies:
 
 ```sh
 npm ci
+```
+
+Build the Tailwind CSS stylesheet:
+
+```sh
 npm run build
 ```
 
-Open `index.html` in a browser. No application server or runtime JavaScript is
-required. To rebuild CSS automatically while editing:
+Watch for changes during development:
 
 ```sh
 npm run watch
 ```
 
-Edit `index.html`, `input.css`, and `tailwind.config.js`. Rebuild and include
-`css/style.css` when changing source styles or Tailwind classes. The generated
-stylesheet is tracked so the repository can also be served directly as a static
-site.
+Open `index.html` in your browser.
 
-### Layout and accessibility decisions
+The project does not require a backend or runtime JavaScript.
 
-The grid uses one column below `48rem`, two from `48rem`, and four from
-`64rem`. On desktop, Daniel and Patrick span two columns and Kira spans two rows.
-The desktop layout is applied only when there is enough space for four cards.
+### What I learned
 
-Tailwind's grid utilities generate flexible tracks:
+This project helped me improve my understanding of responsive
+CSS Grid layouts and how Tailwind CSS utilities can be used
+to build structured and maintainable interfaces.
+
+One of the main challenges was implementing a multi-column layout
+while preserving the natural reading order of the testimonials
+on smaller screens.
+
+I also explored how flexible grid tracks can prevent unwanted
+horizontal overflow:
 
 ```css
 grid-template-columns: repeat(4, minmax(0, 1fr));
 ```
 
-Cards use `min-width: 0`, wrapping text, and content-sized rows. There are no fixed
-card heights or line clamps, so longer text and larger fonts can increase card
-height without hiding content.
+Combining flexible grid tracks with `min-width: 0`, automatic
+row heights, and responsive breakpoints allows the cards
+to adapt to different screen sizes and text lengths.
 
-The DOM follows the mobile reading order. Each testimonial is a labelled article
-with an `h2`; a visually hidden `h1` identifies the page. Portraits use `alt=""`
-because the adjacent text names each graduate. The decorative quotation mark is
-a CSS background and is not part of the reading order.
+Another important lesson was separating visual positioning
+from the semantic order of HTML elements, ensuring that
+the layout remains accessible across different devices.
 
-Shared card rules live in `input.css`. Palette, font family, maximum width, and
-shadow are centralized in `tailwind.config.js`.
+### Testing and verification
 
-## What I learned
+The implementation was tested using headless Chrome at
+the following viewport widths:
 
-Moving a card visually does not change screen-reader order. Keeping one copy of
-each testimonial in the intended mobile order avoids duplicate content and makes
-the reading experience consistent when the layout stacks.
+- 320px
+- 375px
+- 768px
+- 800px
+- 1024px
+- 1440px
 
-Responsive layout needs an intermediate state. Switching straight to four columns
-around tablet widths leaves too little space for the text; a two-column layout
-between `48rem` and `64rem` keeps the cards readable.
+The verification included:
 
-Flexible column widths also need flexible content. Combining `minmax(0, 1fr)`
-with `min-width: 0`, text wrapping, and automatic row heights lets the layout
-accommodate larger text without clipping the testimonials.
+- Responsive layout behavior.
+- Horizontal overflow detection.
+- Visibility of all five testimonials.
+- Font and image loading.
+- Increased root font size from 16px to 32px
+  at selected viewport widths.
+- Successful Tailwind CSS compilation.
 
-## Verification
+Manual screen-reader testing, browser zoom testing,
+and detailed Figma comparison remain future improvements.
 
-- `npm run build` completes successfully.
-- Headless Chrome checks passed at widths of 320, 375, 768, 800, 1024, and 1440 CSS pixels.
-- All five cards remain present, with no horizontal page or card overflow.
-- Additional checks passed with the root font size increased from 16px to 32px
-  at viewport widths of 375 and 1440 pixels.
-- The project font and portrait images loaded before the screenshots were captured.
+### Continued development
 
-Exact comparison with the Figma file, manual screen-reader navigation, and
-browser zoom checks remain to be completed.
+In future projects, I would like to focus on:
 
-## Continued development
+- Improving reusable Tailwind CSS component architecture.
+- Further exploring advanced CSS Grid techniques.
+- Improving accessibility through manual testing.
+- Refining visual accuracy against Figma designs.
+- Exploring self-hosted fonts for better performance.
+- Deploying the updated Tailwind CSS implementation.
 
-- Deploy this Tailwind version to the public demo and verify the deployed result.
-- Complete manual screen-reader and browser zoom checks.
-- Explore self-hosting the font so typography does not depend on Google Fonts.
-- Keep the desktop and mobile screenshots current when the visual design changes.
+### Useful resources
 
-## Repository workflow
+- [Tailwind CSS — Responsive Design](https://v3.tailwindcss.com/docs/responsive-design)
+  — Mobile-first responsive utilities and breakpoints.
 
-See [Contributing](CONTRIBUTING.md) for focused commits, descriptive messages,
-build checks, and screenshot updates. The tracked [`.gitignore`](.gitignore)
-excludes dependencies, build output, logs, local environment files, and common
-editor and operating-system files.
+- [Tailwind CSS — Adding Custom Styles](https://v3.tailwindcss.com/docs/adding-custom-styles)
+  — Creating reusable components and custom styles.
 
-## Useful resources
+- [MDN — CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout)
+  — Understanding grid-based layouts.
 
-- [Tailwind CSS: responsive design](https://v3.tailwindcss.com/docs/responsive-design)
-  explains the mobile-first breakpoint utilities used by the grid.
-- [MDN: grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-template-columns)
-  documents track sizing and the `minmax()` function used to keep columns flexible.
+- [MDN — grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-template-columns)
+  — Flexible column sizing and the minmax() function.
 
-## Credits and author
+## Author
 
-Design and testimonial assets are provided by
-[Frontend Mentor](https://www.frontendmentor.io/). The original Tailwind course
-implementation is from Brad Traversy's
-[Tailwind CSS From Scratch](https://www.traversymedia.com/tailwind-css-course).
+**Petr Bednarski**
 
-- GitHub: [Petr Bednarski](https://github.com/pettik)
-- Frontend Mentor: [@pettik](https://www.frontendmentor.io/profile/pettik)
+- GitHub — [@pettik](https://github.com/pettik)
+- Frontend Mentor — [@pettik](https://www.frontendmentor.io/profile/pettik)
+
+## Acknowledgments
+
+- [Frontend Mentor](https://www.frontendmentor.io/)
+  for providing the challenge, design, and assets.
+
+- [Brad Traversy — Tailwind CSS From Scratch](https://www.traversymedia.com/tailwind-css-course)
+  for the original Tailwind CSS course implementation and inspiration.
