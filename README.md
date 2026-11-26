@@ -11,19 +11,25 @@ This project is a solution to the
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshots](#screenshots)
-  - [Links](#links)
+- [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Implementation](#implementation)
   - [Local development](#local-development)
-  - [What I learned](#what-i-learned)
   - [Testing and verification](#testing-and-verification)
+- [Reflection](#reflection)
+  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+- [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
+
+The project presents five graduate testimonials in a responsive card grid.
+Each card includes a portrait, the graduate's name, a summary, and a full review.
+The layout adapts across mobile, tablet, and desktop screens while preserving
+the testimonials' reading order.
 
 ### The challenge
 
@@ -43,7 +49,7 @@ a four-column desktop grid.
 
 ![Desktop screenshot of the finished solution](images/solution-desktop.png)
 
-*Viewport: 1440 × 900 px*
+_Viewport: 1440 × 900 px_
 
 #### Mobile
 
@@ -51,16 +57,15 @@ a four-column desktop grid.
      alt="Mobile screenshot showing all five testimonials"
      width="375" />
 
-*Viewport: 375 × 812 px — full-page capture*
+_Viewport: 375 × 812 px — full-page capture_
 
 Both screenshots represent the actual Tailwind CSS implementation,
 rather than the original design references.
 
-### Links
+## Links
 
 - [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7)
 - [Source code](https://github.com/pettik/FrontendMentor--testimonials-grid-tailwind-css)
-- [Figma design](https://www.figma.com/design/9O03l3dpCgUQMIQqbPvuT8?fuid=1332602664592485491)
 - [Live demo](https://pettik-testimonials-grid-section.netlify.app/)
 
 > **Deployment note:** The current live demo hosts the earlier
@@ -89,11 +94,11 @@ for the author information inside each card.
 
 The responsive grid consists of three layout configurations:
 
-| Screen size | Breakpoint | Layout |
-|-------------|------------|--------|
-| Mobile | Below 768px | 1 column |
-| Tablet | From 768px | 2 columns |
-| Desktop | From 1024px | 4 columns |
+| Screen size | Breakpoint  | Layout    |
+| ----------- | ----------- | --------- |
+| Mobile      | Below 768px | 1 column  |
+| Tablet      | From 768px  | 2 columns |
+| Desktop     | From 1024px | 4 columns |
 
 On desktop, selected cards span multiple columns or rows
 to recreate the original design.
@@ -136,6 +141,33 @@ Open `index.html` in your browser.
 
 The project does not require a backend or runtime JavaScript.
 
+### Testing and verification
+
+The implementation was tested using headless Chrome at
+the following viewport widths:
+
+- 320px
+- 375px
+- 768px
+- 800px
+- 1024px
+- 1440px
+
+The verification included:
+
+- Responsive layout behavior.
+- Horizontal overflow detection.
+- Visibility of all five testimonials.
+- Font and image loading.
+- Increased root font size from 16px to 32px
+  at selected viewport widths.
+- Successful Tailwind CSS compilation.
+
+Manual screen-reader testing, browser zoom testing,
+and detailed comparison with the challenge design remain future improvements.
+
+## Reflection
+
 ### What I learned
 
 This project helped me improve my understanding of responsive
@@ -161,31 +193,6 @@ Another important lesson was separating visual positioning
 from the semantic order of HTML elements, ensuring that
 the layout remains accessible across different devices.
 
-### Testing and verification
-
-The implementation was tested using headless Chrome at
-the following viewport widths:
-
-- 320px
-- 375px
-- 768px
-- 800px
-- 1024px
-- 1440px
-
-The verification included:
-
-- Responsive layout behavior.
-- Horizontal overflow detection.
-- Visibility of all five testimonials.
-- Font and image loading.
-- Increased root font size from 16px to 32px
-  at selected viewport widths.
-- Successful Tailwind CSS compilation.
-
-Manual screen-reader testing, browser zoom testing,
-and detailed Figma comparison remain future improvements.
-
 ### Continued development
 
 In future projects, I would like to focus on:
@@ -193,11 +200,11 @@ In future projects, I would like to focus on:
 - Improving reusable Tailwind CSS component architecture.
 - Further exploring advanced CSS Grid techniques.
 - Improving accessibility through manual testing.
-- Refining visual accuracy against Figma designs.
+- Refining visual accuracy against the challenge design.
 - Exploring self-hosted fonts for better performance.
 - Deploying the updated Tailwind CSS implementation.
 
-### Useful resources
+## Useful resources
 
 - [Tailwind CSS — Responsive Design](https://v3.tailwindcss.com/docs/responsive-design)
   — Mobile-first responsive utilities and breakpoints.
